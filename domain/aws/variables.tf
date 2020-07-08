@@ -33,6 +33,12 @@ variable "stack_name" {
   type        = string
 }
 
+variable "subdomain_ttl" {
+  default     = 86400
+  description = "The TTL for subdomain NS records. Affects DNS caching."
+  type        = number
+}
+
 variable "tags" {
   default     = {}
   description = "Tags to add to the domain resource (if the provider supports tagging)."
