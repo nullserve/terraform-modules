@@ -1,3 +1,9 @@
+variable "app_prefix" {
+  default     = "app"
+  description = "The prefix for named app aliases; used with domain."
+  type        = string
+}
+
 variable "domain" {
   description = "The domain name to register."
   type        = string
@@ -6,6 +12,12 @@ variable "domain" {
 variable "name" {
   default     = "NullServe Domain"
   description = "The application name to tag resources with."
+  type        = string
+}
+
+variable "ref_prefix" {
+  default     = "ref"
+  description = "The prefix for app by reference id; used with domain."
   type        = string
 }
 
