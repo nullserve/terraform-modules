@@ -8,3 +8,8 @@ variable "backend" {
     error_message = "The backend must be a supported backend. Must be one of: [aws]."
   }
 }
+
+variable "domain" {
+  description = "The domain name to use for applications."
+  type        = string
+}

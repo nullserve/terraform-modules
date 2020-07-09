@@ -1,5 +1,5 @@
 module "aws_domain" {
-  domain        = "aws.0srv.co"
+  domain        = var.domain
   source        = "./aws"
   should_create = var.backend == "aws"
 }

@@ -1,17 +1,16 @@
 resource aws_route53_record "app_subdomain_ns" {
-  allow_overwrite = true
-  count           = var.should_create ? 1 : 0
-  name            = local.app_subdomain
-  records         = aws_route53_zone.app_subdomain.0.name_servers
-  ttl             = var.subdomain_ttl
-  type            = "NS"
-  zone_id         = aws_route53_zone.domain.0.zone_id
+  count   = var.should_create ? 1 : 0
+  name    = local.app_subdomain
+  records = aws_route53_zone.app_subdomain.0.name_servers
+  ttl     = var.subdomain_ttl
+  type    = "NS"
+  zone_id = aws_route53_zone.domain.0.zone_id
 }
 
 resource aws_route53_record "domain_ns" {
   allow_overwrite = true
   count           = var.should_create ? 1 : 0
-  name            = local.app_subdomain
+  name            = var.domain
   records         = aws_route53_zone.domain.0.name_servers
   ttl             = var.subdomain_ttl
   type            = "NS"
@@ -19,13 +18,12 @@ resource aws_route53_record "domain_ns" {
 }
 
 resource aws_route53_record "ref_subdomain_ns" {
-  allow_overwrite = true
-  count           = var.should_create ? 1 : 0
-  name            = local.ref_subdomain
-  records         = aws_route53_zone.ref_subdomain.0.name_servers
-  ttl             = var.subdomain_ttl
-  type            = "NS"
-  zone_id         = aws_route53_zone.domain.0.zone_id
+  count   = var.should_create ? 1 : 0
+  name    = local.ref_subdomain
+  records = aws_route53_zone.ref_subdomain.0.name_servers
+  ttl     = var.subdomain_ttl
+  type    = "NS"
+  zone_id = aws_route53_zone.domain.0.zone_id
 }
 
 resource aws_route53_zone "app_subdomain" {
