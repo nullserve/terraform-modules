@@ -4,8 +4,8 @@ variable "backend" {
   type        = string
 
   validation {
-    condition     = contains(["aws"], var.backend)
-    error_message = "The backend must be a supported backend. Must be one of: [aws]."
+    condition     = contains(["aws", "cloudflare"], var.backend)
+    error_message = "The backend must be a supported backend. Must be one of: [aws, cloudflare]."
   }
 }
 
