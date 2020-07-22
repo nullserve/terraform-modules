@@ -3,7 +3,7 @@ resource aws_route53_record "domain_ns" {
   count           = var.should_create ? 1 : 0
   name            = var.domain
   records         = aws_route53_zone.domain.0.name_servers
-  ttl             = var.subdomain_ttl
+  ttl             = var.ttl
   type            = "NS"
   zone_id         = aws_route53_zone.domain.0.zone_id
 }

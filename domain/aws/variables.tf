@@ -27,3 +27,9 @@ variable "tags" {
   description = "Tags to add to the domain resource (if the provider supports tagging)."
   type        = map(string)
 }
+
+variable "ttl" {
+  default     = 18600
+  description = "Domain DNS TTL"
+  type        = number
+}
