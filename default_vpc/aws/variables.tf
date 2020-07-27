@@ -4,6 +4,12 @@ variable "name" {
   type        = string
 }
 
+variable "stack_name" {
+  default     = "NullServe Default VPC"
+  description = "The name of the stack"
+  type        = string
+}
+
 variable "tags" {
   default     = {}
   description = "Tags applied to the VPC resources"
