@@ -5,20 +5,20 @@ resource "aws_security_group" "origin_service" {
   vpc_id                 = var.vpc_id
 
   tags = merge(local.common_tags, {
-    Name : "NullServe API Static Host",
+    Name : "NullServe API Origin Service",
     VPC : "NullServe API"
   })
 
 }
 
 resource "aws_security_group" "origin_service_elb" {
-  description            = "Contains Static Host Server ELBv2"
+  description            = "Contains Origin Service Server ELBv2"
   name_prefix            = "nullserve-api-origin-service-elb"
   revoke_rules_on_delete = true
   vpc_id                 = var.vpc_id
 
   tags = merge(local.common_tags, {
-    Name : "NullServe API Static Host ELB",
+    Name : "NullServe API Origin Service ELB",
     VPC : "NullServe API"
   })
 }

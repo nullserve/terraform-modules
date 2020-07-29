@@ -7,5 +7,5 @@ output "internal_subnet_ids" {
 }
 
 output "vpc_id" {
-  value = aws_vpc.main.0.id
+  value = var.should_create ? aws_vpc.main.0.id : null
 }
