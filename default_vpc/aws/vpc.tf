@@ -61,7 +61,7 @@ resource aws_route_table_association "internal" {
 }
 
 resource aws_subnet "external" {
-  count             = length(data.aws_availability_zones.available.names)
+  count             = var.should_create ? length(data.aws_availability_zones.available.names) : 0
   availability_zone = data.aws_availability_zones.available.names[count.index]
   cidr_block        = cidrsubnet(cidrsubnet(aws_vpc.main.cidr_block, 2, 0), 4, count.index)
   ipv6_cidr_block   = cidrsubnet(cidrsubnet(aws_vpc.main.ipv6_cidr_block, 2, 0), 6, count.index)
@@ -76,7 +76,7 @@ resource aws_subnet "external" {
 }
 
 resource aws_subnet "internal" {
-  count             = length(data.aws_availability_zones.available.names)
+  count             = var.should_create ? length(data.aws_availability_zones.available.names) : 0
   availability_zone = data.aws_availability_zones.available.names[count.index]
   cidr_block        = cidrsubnet(cidrsubnet(aws_vpc.main.cidr_block, 2, 1), 4, count.index)
   ipv6_cidr_block   = cidrsubnet(cidrsubnet(aws_vpc.main.ipv6_cidr_block, 2, 1), 6, count.index)
@@ -91,6 +91,7 @@ resource aws_subnet "internal" {
 }
 
 resource aws_vpc "main" {
+  count                            = var.should_create ? 1 : 0
   assign_generated_ipv6_cidr_block = true
   cidr_block                       = var.cidr_block
   enable_dns_hostnames             = true
