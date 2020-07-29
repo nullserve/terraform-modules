@@ -6,7 +6,7 @@ resource aws_network_acl "external" {
     VPC  = var.name
   }, var.tags)
 
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.main.0.id
 }
 
 resource aws_network_acl "internal" {
@@ -17,7 +17,7 @@ resource aws_network_acl "internal" {
     VPC  = var.name
   }, var.tags)
 
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.main.0.id
 }
 
 resource aws_network_acl_rule "external_allow_all_ipv4_in" {
@@ -57,7 +57,7 @@ resource aws_network_acl_rule "external_allow_all_ipv6_out" {
 }
 
 resource aws_network_acl_rule "internal_allow_vpc_ipv4_in" {
-  cidr_block     = aws_vpc.main.cidr_block
+  cidr_block     = aws_vpc.main.0.cidr_block
   egress         = false
   network_acl_id = aws_network_acl.internal.id
   protocol       = -1
@@ -66,7 +66,7 @@ resource aws_network_acl_rule "internal_allow_vpc_ipv4_in" {
 }
 
 resource aws_network_acl_rule "internal_allow_vpc_ipv4_out" {
-  cidr_block     = aws_vpc.main.cidr_block
+  cidr_block     = aws_vpc.main.0.cidr_block
   egress         = true
   network_acl_id = aws_network_acl.internal.id
   protocol       = -1
@@ -76,7 +76,7 @@ resource aws_network_acl_rule "internal_allow_vpc_ipv4_out" {
 
 resource aws_network_acl_rule "internal_allow_vpc_ipv6_in" {
   egress          = false
-  ipv6_cidr_block = aws_vpc.main.ipv6_cidr_block
+  ipv6_cidr_block = aws_vpc.main.0.ipv6_cidr_block
   network_acl_id  = aws_network_acl.internal.id
   protocol        = -1
   rule_action     = "allow"
@@ -85,7 +85,7 @@ resource aws_network_acl_rule "internal_allow_vpc_ipv6_in" {
 
 resource aws_network_acl_rule "internal_allow_vpc_ipv6_out" {
   egress          = true
-  ipv6_cidr_block = aws_vpc.main.ipv6_cidr_block
+  ipv6_cidr_block = aws_vpc.main.0.ipv6_cidr_block
   network_acl_id  = aws_network_acl.internal.id
   protocol        = -1
   rule_action     = "allow"
