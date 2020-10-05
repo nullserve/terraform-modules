@@ -31,6 +31,12 @@ variable "name" {
   type        = string
 }
 
+variable "should_create" {
+  default     = false
+  description = "A switch to tell this module whether or not to create its resources."
+  type        = bool
+}
+
 variable "stack_name" {
   default     = "NullServe Origin Service"
   description = "The stack name to tag resources with."
@@ -45,5 +51,11 @@ variable "ref_subdomain_prefix" {
 
 variable "vpc_id" {
   description = "The vpc from which origin service will be run"
+  type        = string
+}
+
+variable "stack_name" {
+  default     = "NullServe Origin Service"
+  description = "The stack name to tag resources with."
   type        = string
 }
