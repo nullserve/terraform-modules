@@ -9,6 +9,11 @@ variable "app_subdomain_prefix" {
   type        = string
 }
 
+variable "backend" {
+  default     = "ecs"
+  description = "The AWS backend host to use for hosting"
+}
+
 variable "domain" {
   description = "The domain which you will host NullServe"
   type        = string
