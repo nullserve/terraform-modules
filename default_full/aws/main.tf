@@ -8,12 +8,12 @@ module "default_log" {
   source  = "../..default_log"
 }
 
-module "domain" {
-  backend = "aws"
-  source  = "../../domain"
-}
-
 module "origin_service" {
   backend = "aws"
   source  = "../..origin_service"
+}
+
+module "nullserve_domain" {
+  backend = "aws"
+  source  = "../../nullserve_domain"
 }
