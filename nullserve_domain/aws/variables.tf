@@ -1,4 +1,3 @@
-
 variable "domain" {
   description = "The domain name to register."
   type        = string
