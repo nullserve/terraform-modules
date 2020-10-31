@@ -12,6 +12,7 @@ variable "app_subdomain_prefix" {
 variable "backend" {
   default     = "ecs"
   description = "The AWS backend host to use for hosting"
+  type        = string
 }
 
 variable "domain" {
