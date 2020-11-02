@@ -1,4 +1,4 @@
-module github.com/nullserve/terraform-modules/domain/aws
+module github.com/nullserve/terraform-modules/nullserve_domain/aws
 
 go 1.13
 

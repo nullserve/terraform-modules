@@ -1,4 +1,4 @@
-module github.com/nullserve/terraform-modules/domain
+module github.com/nullserve/terraform-modules/nullserve_domain
 
 go 1.13
 
