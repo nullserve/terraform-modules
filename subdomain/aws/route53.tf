@@ -17,5 +17,11 @@ resource "aws_route53_zone" "subdomain" {
   name    = var.subdomain_prefix
   comment = "Subdomain ${var.subdomain} for NullServe"
 
-  // TODO: Add tags
+  tags = merge(
+    local.common_tags,
+    var.tags,
+    {
+      "Name" = "NullServe ${var.subdomain_prefix} Subdomain"
+    }
+  )
 }
