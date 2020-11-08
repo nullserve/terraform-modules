@@ -1,6 +1,6 @@
 // TODO: Split this into a secondary module to allow cross-provider DNS?
-variable "domain_zone_id" {
-  description = "The root domain zone id."
+variable "domain_zone" {
+  description = "The root domain zone."
   type        = string
 }
 
