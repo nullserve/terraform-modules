@@ -1,6 +1,6 @@
 // TODO: Split this into a secondary module to allow cross-provider DNS?
 data "aws_route53_zone" "domain" {
-  name = var.domain_zone
+  name = var.root_domain
 }
 
 // TODO: Split this into a secondary module to allow cross-provider DNS?

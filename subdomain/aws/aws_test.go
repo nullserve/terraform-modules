@@ -55,7 +55,7 @@ var _ = Describe("AWS Subdomain", func() {
 			tfOptions := &terraform.Options{
 				TerraformDir: "./",
 				Vars: map[string]interface{}{
-					"domain_zone":      *rootHostedZone.HostedZone.Name,
+					"root_domain":      *rootHostedZone.HostedZone.Name,
 					"name":             "aws.0srv.co subdomain",
 					"should_create":    true,
 					"subdomain_prefix": "aws",
